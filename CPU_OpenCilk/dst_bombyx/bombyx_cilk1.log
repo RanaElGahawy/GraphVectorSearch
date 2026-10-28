@@ -1,0 +1,76 @@
+Restructuring loop in dst_search at BB5
+l2sq (init):
+[A]:a [A]:b [A]:d acc i t 
+Loop is terminator & Current level = 0
+path 0: BB0, BB1, BB4, BB2, BB3, 
+dist_task (init):
+[A]:q [A]:vecs [A]:d [A]:ids [A]:dists [A]:i 
+path 0: BB0, 
+murmur2 (init):
+[A]:k0 [A]:seed m h 
+path 0: BB0, 
+bloom_test_and_set (init):
+[A]:bloom [A]:node seen h pos bit 
+Loop is terminator & Current level = 0
+path 0: BB0, BB1, BB4, BB2, BB6, BB3, BB5, 
+sorted_insert (init):
+[A]:qd [A]:qi [A]:size [A]:cap [A]:dist [A]:id new_size j 
+Loop is terminator & Current level = 0
+path 0: BB0, BB2, BB1, BB4, BB5, BB7, BB6, BB3, 
+threshold (init):
+[A]:rd [A]:r_size [A]:ef t 
+path 0: BB0, BB2, BB1, 
+merge_group (init):
+[A]:rd [A]:ri [A]:cd [A]:ci [A]:meta [A]:ef [A]:cand_cap [A]:ids [A]:dists [A]:cnt i 
+Loop is terminator & Current level = 0
+path 0: BB0, BB1, BB4, BB2, BB6, BB3, BB5, 
+select_group (init):
+[A]:rd [A]:cd [A]:ci [A]:meta [A]:ef [A]:mc [A]:degree [A]:links [A]:maxDegree [A]:bloom [A]:ids [A]:cnt popped c t node j j0 nb 
+Loop is terminator & Current level = 0
+Loop is terminator & Current level = 0
+Loop is terminator & Current level = 0
+path 0: BB0, BB1, BB3, BB2, BB4, BB7, BB8, BB11, BB9, BB13, BB10, BB12, BB5, BB6, 
+dst_search (init):
+[A]:q [A]:vecs [A]:degree [A]:links [A]:d [A]:maxDegree [A]:entry [A]:ef [A]:cand_cap [A]:mc [A]:mg [A]:k0 [A]:rd [A]:ri [A]:cd [A]:ci [A]:bloom [A]:slot_ids [A]:slot_dists [A]:slot_cnt [A]:meta [A]:out slot_cap i d0 head tail pending active s popped i0 i1 
+Loop is terminator & Current level = 0
+path 0: BB0, BB1, BB4, BB5, BB2, BB3, 
+search_batch (init):
+[A]:nq [A]:queries [A]:vecs [A]:degree [A]:links [A]:d [A]:maxDegree [A]:entry [A]:ef [A]:cand_cap [A]:mc [A]:mg [A]:k0 [A]:rd [A]:ri [A]:cd [A]:ci [A]:bloom [A]:slot_ids [A]:slot_dists [A]:slot_cnt [A]:meta [A]:out slot_size qi 
+Loop is terminator & Current level = 0
+Sync is terminator & Current level = 0
+path 0: BB0, BB1, BB4, BB2, BB3, 
+path 1: BB5, 
+search_batch:
+[A]:nq [A]:queries [A]:vecs [A]:degree [A]:links [A]:d [A]:maxDegree [A]:entry [A]:ef [A]:cand_cap [A]:mc [A]:mg [A]:k0 [A]:rd [A]:ri [A]:cd [A]:ci [A]:bloom [A]:slot_ids [A]:slot_dists [A]:slot_cnt [A]:meta [A]:out slot_size qi 
+ContF12:
+
+dst_search_exit0 (init):
+[A]:k0 [A]:ri [A]:meta [A]:out [A]:i1 
+Loop is terminator & Current level = 0
+path 0: BB0, BB1, BB2, BB3, BB4, BB5, BB6, 
+dst_search_reentry0 (init):
+[A]:q [A]:vecs [A]:degree [A]:links [A]:d [A]:maxDegree [A]:ef [A]:cand_cap [A]:mc [A]:mg [A]:k0 [A]:rd [A]:ri [A]:cd [A]:ci [A]:bloom [A]:slot_ids [A]:slot_dists [A]:slot_cnt [A]:meta [A]:out [A]:slot_cap [A]:head [A]:tail [A]:pending [A]:active [A]:s [A]:popped [A]:i0 [A]:i1 
+Loop is terminator & Current level = 0
+Sync is terminator & Current level = 0
+path 0: BB0, BB13, BB1, BB2, BB3, BB4, BB10, BB11, BB12, 
+path 1: BB5, BB6, BB7, BB8, BB9, 
+dst_search_reentry0:
+[A]:q [A]:vecs [A]:degree [A]:links [A]:d [A]:maxDegree [A]:ef [A]:cand_cap [A]:mc [A]:mg [A]:k0 [A]:rd [A]:ri [A]:cd [A]:ci [A]:bloom [A]:slot_ids [A]:slot_dists [A]:slot_cnt [A]:meta [A]:out [A]:slot_cap [A]:head [A]:tail [A]:pending [A]:active [A]:s [A]:popped [A]:i0 [A]:i1 
+ContF13:
+[A]:q [A]:links [A]:d [A]:maxDegree [A]:vecs [A]:degree [A]:ef [A]:pending [A]:active [A]:cand_cap [A]:mc [A]:mg [A]:k0 [A]:rd [A]:ri [A]:cd [A]:ci [A]:bloom [A]:slot_ids [A]:slot_dists [A]:slot_cnt [A]:meta [A]:out [A]:slot_cap [A]:head [A]:tail [A]:s [A]:popped [A]:i0 [A]:i1 
+SymbolicCount(N=0, S=[])
+SymbolicCount(N=0, S=[])
+SymbolicCount(N=0, S=[])
+SymbolicCount(N=0, S=[])
+SymbolicCount(N=0, S=[])
+SymbolicCount(N=0, S=[])
+SymbolicCount(N=0, S=[])
+SymbolicCount(N=0, S=[])
+SymbolicCount(N=1, S=[])
+search_batch_cont0 -> SymbolicCount(N=0, S=[( (nq / 1) | SymbolicCount(N=1, S=[])), ])
+SymbolicCount(N=0, S=[])
+SymbolicCount(N=0, S=[])
+dst_search_reentry0_cont0 -> SymbolicCount(N=0, S=[( (slot_cnt[s] / 1) | SymbolicCount(N=1, S=[])), ])
+SymbolicCount(N=-1, S=[])
+SymbolicCount(N=0, S=[])
+SymbolicCount(N=1, S=[])

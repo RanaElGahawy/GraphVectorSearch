@@ -1,0 +1,2150 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    searched_directories:
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/uname"
+      - "/Applications/Docker.app/Contents/Resources/bin/uname"
+      - "/Users/ranaelgahawy/Anaconda3/bin/uname"
+      - "/usr/local/sbin/uname"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/uname"
+      - "/opt/local/bin/uname"
+      - "/opt/local/sbin/uname"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/uname"
+      - "/usr/local/bin/uname"
+      - "/System/Cryptexes/App/usr/bin/uname"
+    found: "/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      The system is: Darwin - 25.5.0 - x86_64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "gmake"
+      - "make"
+      - "smake"
+    candidate_directories:
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    searched_directories:
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/gmake"
+      - "/Applications/Docker.app/Contents/Resources/bin/gmake"
+      - "/Users/ranaelgahawy/Anaconda3/bin/gmake"
+      - "/usr/local/sbin/gmake"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/gmake"
+      - "/opt/local/bin/gmake"
+      - "/opt/local/sbin/gmake"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/gmake"
+    found: "/usr/local/bin/gmake"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "/usr/local/share/cmake/Modules/"
+    found: "/usr/local/share/cmake/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /opt/opencilk/bin/clang++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        /Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/4.2.3/CompilerIdCXX/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerId.cmake:290 (message)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Detecting CXX compiler apple sysroot: "/opt/opencilk/bin/clang++" "-E" "apple-sdk.cpp"
+        # 1 "apple-sdk.cpp"
+        # 1 "<built-in>" 1
+        # 1 "<built-in>" 3
+        # 444 "<built-in>" 3
+        # 1 "<command line>" 1
+        # 1 "<built-in>" 2
+        # 1 "apple-sdk.cpp" 2
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 1 3 4
+        # 89 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityVersions.h" 1 3 4
+        # 90 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 2 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/TargetConditionals.h" 1 3 4
+        # 91 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 2 3 4
+        # 207 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h" 1 3 4
+        # 196 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h" 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityVersions.h" 1 3 4
+        # 197 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h" 2 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h" 1 3 4
+        # 33 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h" 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityVersions.h" 1 3 4
+        # 34 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h" 2 3 4
+        # 198 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h" 2 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityInternalLegacy.h" 1 3 4
+        # 34 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityInternalLegacy.h" 3 4
+        # 1 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityInternal.h" 1 3 4
+        # 35 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityInternalLegacy.h" 2 3 4
+        # 199 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h" 2 3 4
+        # 208 "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/AvailabilityMacros.h" 2 3 4
+        # 2 "apple-sdk.cpp" 2
+        
+        
+      Found apple sysroot: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ar"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    searched_directories:
+      - "/opt/opencilk/bin/ar"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/ar"
+      - "/Applications/Docker.app/Contents/Resources/bin/ar"
+      - "/Users/ranaelgahawy/Anaconda3/bin/ar"
+      - "/usr/local/sbin/ar"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/ar"
+      - "/opt/local/bin/ar"
+      - "/opt/local/sbin/ar"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/ar"
+      - "/usr/local/bin/ar"
+      - "/System/Cryptexes/App/usr/bin/ar"
+    found: "/usr/bin/ar"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_RANLIB"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ranlib"
+      - "ranlib"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    found: "/opt/OpenCilk/bin/llvm-ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_STRIP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "strip"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    searched_directories:
+      - "/opt/opencilk/bin/strip"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/strip"
+      - "/Applications/Docker.app/Contents/Resources/bin/strip"
+      - "/Users/ranaelgahawy/Anaconda3/bin/strip"
+      - "/usr/local/sbin/strip"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/strip"
+      - "/opt/local/bin/strip"
+      - "/opt/local/sbin/strip"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/strip"
+      - "/usr/local/bin/strip"
+      - "/System/Cryptexes/App/usr/bin/strip"
+    found: "/usr/bin/strip"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    searched_directories:
+      - "/opt/opencilk/bin/ld"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/ld"
+      - "/Applications/Docker.app/Contents/Resources/bin/ld"
+      - "/Users/ranaelgahawy/Anaconda3/bin/ld"
+      - "/usr/local/sbin/ld"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/ld"
+      - "/opt/local/bin/ld"
+      - "/opt/local/sbin/ld"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/ld"
+      - "/usr/local/bin/ld"
+      - "/System/Cryptexes/App/usr/bin/ld"
+    found: "/usr/bin/ld"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-nm"
+      - "nm"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    found: "/opt/OpenCilk/bin/llvm-nm"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objdump"
+      - "objdump"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    found: "/opt/OpenCilk/bin/llvm-objdump"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objcopy"
+      - "objcopy"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    found: "/opt/OpenCilk/bin/llvm-objcopy"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-readelf"
+      - "readelf"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    found: "/opt/OpenCilk/bin/llvm-readelf"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-dlltool"
+      - "dlltool"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    found: "/opt/OpenCilk/bin/llvm-dlltool"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-addr2line"
+      - "addr2line"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    found: "/opt/OpenCilk/bin/llvm-addr2line"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    searched_directories:
+      - "/opt/opencilk/bin/tapi"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/tapi"
+      - "/Applications/Docker.app/Contents/Resources/bin/tapi"
+      - "/Users/ranaelgahawy/Anaconda3/bin/tapi"
+      - "/usr/local/sbin/tapi"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/tapi"
+      - "/opt/local/bin/tapi"
+      - "/opt/local/sbin/tapi"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/tapi"
+      - "/usr/local/bin/tapi"
+      - "/System/Cryptexes/App/usr/bin/tapi"
+      - "/usr/bin/tapi"
+      - "/bin/tapi"
+      - "/usr/sbin/tapi"
+      - "/sbin/tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/tapi"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/tapi"
+      - "/pkg/env/global/bin/tapi"
+      - "/opt/X11/bin/tapi"
+      - "/Library/Apple/usr/bin/tapi"
+      - "/Library/TeX/texbin/tapi"
+      - "/usr/local/share/dotnet/tapi"
+      - "/Users/ranaelgahawy/.dotnet/tools/tapi"
+      - "/usr/local/go/bin/tapi"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/tapi"
+      - "/opt/anaconda3/condabin/tapi"
+      - "/Users/ranaelgahawy/.cargo/bin/tapi"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/Compiler/Clang-FindBinUtils.cmake:26 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "LLVM archiver"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ar-16.0"
+      - "llvm-ar-16"
+      - "llvm-ar16"
+      - "llvm-ar"
+    candidate_directories:
+      - "/opt/OpenCilk/bin/"
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    searched_directories:
+      - "/opt/OpenCilk/bin/llvm-ar-16.0"
+      - "/opt/opencilk/bin/llvm-ar-16.0"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/llvm-ar-16.0"
+      - "/Applications/Docker.app/Contents/Resources/bin/llvm-ar-16.0"
+      - "/Users/ranaelgahawy/Anaconda3/bin/llvm-ar-16.0"
+      - "/usr/local/sbin/llvm-ar-16.0"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/llvm-ar-16.0"
+      - "/opt/local/bin/llvm-ar-16.0"
+      - "/opt/local/sbin/llvm-ar-16.0"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/llvm-ar-16.0"
+      - "/usr/local/bin/llvm-ar-16.0"
+      - "/System/Cryptexes/App/usr/bin/llvm-ar-16.0"
+      - "/usr/bin/llvm-ar-16.0"
+      - "/bin/llvm-ar-16.0"
+      - "/usr/sbin/llvm-ar-16.0"
+      - "/sbin/llvm-ar-16.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ar-16.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ar-16.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ar-16.0"
+      - "/pkg/env/global/bin/llvm-ar-16.0"
+      - "/opt/X11/bin/llvm-ar-16.0"
+      - "/Library/Apple/usr/bin/llvm-ar-16.0"
+      - "/Library/TeX/texbin/llvm-ar-16.0"
+      - "/usr/local/share/dotnet/llvm-ar-16.0"
+      - "/Users/ranaelgahawy/.dotnet/tools/llvm-ar-16.0"
+      - "/usr/local/go/bin/llvm-ar-16.0"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/llvm-ar-16.0"
+      - "/opt/anaconda3/condabin/llvm-ar-16.0"
+      - "/Users/ranaelgahawy/.cargo/bin/llvm-ar-16.0"
+      - "/opt/OpenCilk/bin/llvm-ar-16"
+      - "/opt/opencilk/bin/llvm-ar-16"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/llvm-ar-16"
+      - "/Applications/Docker.app/Contents/Resources/bin/llvm-ar-16"
+      - "/Users/ranaelgahawy/Anaconda3/bin/llvm-ar-16"
+      - "/usr/local/sbin/llvm-ar-16"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/llvm-ar-16"
+      - "/opt/local/bin/llvm-ar-16"
+      - "/opt/local/sbin/llvm-ar-16"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/llvm-ar-16"
+      - "/usr/local/bin/llvm-ar-16"
+      - "/System/Cryptexes/App/usr/bin/llvm-ar-16"
+      - "/usr/bin/llvm-ar-16"
+      - "/bin/llvm-ar-16"
+      - "/usr/sbin/llvm-ar-16"
+      - "/sbin/llvm-ar-16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ar-16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ar-16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ar-16"
+      - "/pkg/env/global/bin/llvm-ar-16"
+      - "/opt/X11/bin/llvm-ar-16"
+      - "/Library/Apple/usr/bin/llvm-ar-16"
+      - "/Library/TeX/texbin/llvm-ar-16"
+      - "/usr/local/share/dotnet/llvm-ar-16"
+      - "/Users/ranaelgahawy/.dotnet/tools/llvm-ar-16"
+      - "/usr/local/go/bin/llvm-ar-16"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/llvm-ar-16"
+      - "/opt/anaconda3/condabin/llvm-ar-16"
+      - "/Users/ranaelgahawy/.cargo/bin/llvm-ar-16"
+      - "/opt/OpenCilk/bin/llvm-ar16"
+      - "/opt/opencilk/bin/llvm-ar16"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/llvm-ar16"
+      - "/Applications/Docker.app/Contents/Resources/bin/llvm-ar16"
+      - "/Users/ranaelgahawy/Anaconda3/bin/llvm-ar16"
+      - "/usr/local/sbin/llvm-ar16"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/llvm-ar16"
+      - "/opt/local/bin/llvm-ar16"
+      - "/opt/local/sbin/llvm-ar16"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/llvm-ar16"
+      - "/usr/local/bin/llvm-ar16"
+      - "/System/Cryptexes/App/usr/bin/llvm-ar16"
+      - "/usr/bin/llvm-ar16"
+      - "/bin/llvm-ar16"
+      - "/usr/sbin/llvm-ar16"
+      - "/sbin/llvm-ar16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ar16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ar16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ar16"
+      - "/pkg/env/global/bin/llvm-ar16"
+      - "/opt/X11/bin/llvm-ar16"
+      - "/Library/Apple/usr/bin/llvm-ar16"
+      - "/Library/TeX/texbin/llvm-ar16"
+      - "/usr/local/share/dotnet/llvm-ar16"
+      - "/Users/ranaelgahawy/.dotnet/tools/llvm-ar16"
+      - "/usr/local/go/bin/llvm-ar16"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/llvm-ar16"
+      - "/opt/anaconda3/condabin/llvm-ar16"
+      - "/Users/ranaelgahawy/.cargo/bin/llvm-ar16"
+    found: "/opt/OpenCilk/bin/llvm-ar"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/Compiler/Clang-FindBinUtils.cmake:38 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "Generate index for LLVM archive"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ranlib-16.0"
+      - "llvm-ranlib-16"
+      - "llvm-ranlib16"
+      - "llvm-ranlib"
+    candidate_directories:
+      - "/opt/OpenCilk/bin/"
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    searched_directories:
+      - "/opt/OpenCilk/bin/llvm-ranlib-16.0"
+      - "/opt/opencilk/bin/llvm-ranlib-16.0"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/llvm-ranlib-16.0"
+      - "/Applications/Docker.app/Contents/Resources/bin/llvm-ranlib-16.0"
+      - "/Users/ranaelgahawy/Anaconda3/bin/llvm-ranlib-16.0"
+      - "/usr/local/sbin/llvm-ranlib-16.0"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/llvm-ranlib-16.0"
+      - "/opt/local/bin/llvm-ranlib-16.0"
+      - "/opt/local/sbin/llvm-ranlib-16.0"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/llvm-ranlib-16.0"
+      - "/usr/local/bin/llvm-ranlib-16.0"
+      - "/System/Cryptexes/App/usr/bin/llvm-ranlib-16.0"
+      - "/usr/bin/llvm-ranlib-16.0"
+      - "/bin/llvm-ranlib-16.0"
+      - "/usr/sbin/llvm-ranlib-16.0"
+      - "/sbin/llvm-ranlib-16.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ranlib-16.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ranlib-16.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ranlib-16.0"
+      - "/pkg/env/global/bin/llvm-ranlib-16.0"
+      - "/opt/X11/bin/llvm-ranlib-16.0"
+      - "/Library/Apple/usr/bin/llvm-ranlib-16.0"
+      - "/Library/TeX/texbin/llvm-ranlib-16.0"
+      - "/usr/local/share/dotnet/llvm-ranlib-16.0"
+      - "/Users/ranaelgahawy/.dotnet/tools/llvm-ranlib-16.0"
+      - "/usr/local/go/bin/llvm-ranlib-16.0"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/llvm-ranlib-16.0"
+      - "/opt/anaconda3/condabin/llvm-ranlib-16.0"
+      - "/Users/ranaelgahawy/.cargo/bin/llvm-ranlib-16.0"
+      - "/opt/OpenCilk/bin/llvm-ranlib-16"
+      - "/opt/opencilk/bin/llvm-ranlib-16"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/llvm-ranlib-16"
+      - "/Applications/Docker.app/Contents/Resources/bin/llvm-ranlib-16"
+      - "/Users/ranaelgahawy/Anaconda3/bin/llvm-ranlib-16"
+      - "/usr/local/sbin/llvm-ranlib-16"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/llvm-ranlib-16"
+      - "/opt/local/bin/llvm-ranlib-16"
+      - "/opt/local/sbin/llvm-ranlib-16"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/llvm-ranlib-16"
+      - "/usr/local/bin/llvm-ranlib-16"
+      - "/System/Cryptexes/App/usr/bin/llvm-ranlib-16"
+      - "/usr/bin/llvm-ranlib-16"
+      - "/bin/llvm-ranlib-16"
+      - "/usr/sbin/llvm-ranlib-16"
+      - "/sbin/llvm-ranlib-16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ranlib-16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ranlib-16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ranlib-16"
+      - "/pkg/env/global/bin/llvm-ranlib-16"
+      - "/opt/X11/bin/llvm-ranlib-16"
+      - "/Library/Apple/usr/bin/llvm-ranlib-16"
+      - "/Library/TeX/texbin/llvm-ranlib-16"
+      - "/usr/local/share/dotnet/llvm-ranlib-16"
+      - "/Users/ranaelgahawy/.dotnet/tools/llvm-ranlib-16"
+      - "/usr/local/go/bin/llvm-ranlib-16"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/llvm-ranlib-16"
+      - "/opt/anaconda3/condabin/llvm-ranlib-16"
+      - "/Users/ranaelgahawy/.cargo/bin/llvm-ranlib-16"
+      - "/opt/OpenCilk/bin/llvm-ranlib16"
+      - "/opt/opencilk/bin/llvm-ranlib16"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/llvm-ranlib16"
+      - "/Applications/Docker.app/Contents/Resources/bin/llvm-ranlib16"
+      - "/Users/ranaelgahawy/Anaconda3/bin/llvm-ranlib16"
+      - "/usr/local/sbin/llvm-ranlib16"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/llvm-ranlib16"
+      - "/opt/local/bin/llvm-ranlib16"
+      - "/opt/local/sbin/llvm-ranlib16"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/llvm-ranlib16"
+      - "/usr/local/bin/llvm-ranlib16"
+      - "/System/Cryptexes/App/usr/bin/llvm-ranlib16"
+      - "/usr/bin/llvm-ranlib16"
+      - "/bin/llvm-ranlib16"
+      - "/usr/sbin/llvm-ranlib16"
+      - "/sbin/llvm-ranlib16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/llvm-ranlib16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/llvm-ranlib16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/llvm-ranlib16"
+      - "/pkg/env/global/bin/llvm-ranlib16"
+      - "/opt/X11/bin/llvm-ranlib16"
+      - "/Library/Apple/usr/bin/llvm-ranlib16"
+      - "/Library/TeX/texbin/llvm-ranlib16"
+      - "/usr/local/share/dotnet/llvm-ranlib16"
+      - "/Users/ranaelgahawy/.dotnet/tools/llvm-ranlib16"
+      - "/usr/local/go/bin/llvm-ranlib16"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/llvm-ranlib16"
+      - "/opt/anaconda3/condabin/llvm-ranlib16"
+      - "/Users/ranaelgahawy/.cargo/bin/llvm-ranlib16"
+    found: "/opt/OpenCilk/bin/llvm-ranlib"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/Compiler/Clang-FindBinUtils.cmake:50 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS"
+    description: "`clang-scan-deps` dependency scanner"
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "clang-scan-deps-16.0"
+      - "clang-scan-deps-16"
+      - "clang-scan-deps16"
+      - "clang-scan-deps"
+    candidate_directories:
+      - "/opt/OpenCilk/bin/"
+      - "/opt/opencilk/bin/"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    searched_directories:
+      - "/opt/OpenCilk/bin/clang-scan-deps-16.0"
+      - "/opt/opencilk/bin/clang-scan-deps-16.0"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/clang-scan-deps-16.0"
+      - "/Applications/Docker.app/Contents/Resources/bin/clang-scan-deps-16.0"
+      - "/Users/ranaelgahawy/Anaconda3/bin/clang-scan-deps-16.0"
+      - "/usr/local/sbin/clang-scan-deps-16.0"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/clang-scan-deps-16.0"
+      - "/opt/local/bin/clang-scan-deps-16.0"
+      - "/opt/local/sbin/clang-scan-deps-16.0"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/clang-scan-deps-16.0"
+      - "/usr/local/bin/clang-scan-deps-16.0"
+      - "/System/Cryptexes/App/usr/bin/clang-scan-deps-16.0"
+      - "/usr/bin/clang-scan-deps-16.0"
+      - "/bin/clang-scan-deps-16.0"
+      - "/usr/sbin/clang-scan-deps-16.0"
+      - "/sbin/clang-scan-deps-16.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/clang-scan-deps-16.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/clang-scan-deps-16.0"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/clang-scan-deps-16.0"
+      - "/pkg/env/global/bin/clang-scan-deps-16.0"
+      - "/opt/X11/bin/clang-scan-deps-16.0"
+      - "/Library/Apple/usr/bin/clang-scan-deps-16.0"
+      - "/Library/TeX/texbin/clang-scan-deps-16.0"
+      - "/usr/local/share/dotnet/clang-scan-deps-16.0"
+      - "/Users/ranaelgahawy/.dotnet/tools/clang-scan-deps-16.0"
+      - "/usr/local/go/bin/clang-scan-deps-16.0"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/clang-scan-deps-16.0"
+      - "/opt/anaconda3/condabin/clang-scan-deps-16.0"
+      - "/Users/ranaelgahawy/.cargo/bin/clang-scan-deps-16.0"
+      - "/opt/OpenCilk/bin/clang-scan-deps-16"
+      - "/opt/opencilk/bin/clang-scan-deps-16"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/clang-scan-deps-16"
+      - "/Applications/Docker.app/Contents/Resources/bin/clang-scan-deps-16"
+      - "/Users/ranaelgahawy/Anaconda3/bin/clang-scan-deps-16"
+      - "/usr/local/sbin/clang-scan-deps-16"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/clang-scan-deps-16"
+      - "/opt/local/bin/clang-scan-deps-16"
+      - "/opt/local/sbin/clang-scan-deps-16"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/clang-scan-deps-16"
+      - "/usr/local/bin/clang-scan-deps-16"
+      - "/System/Cryptexes/App/usr/bin/clang-scan-deps-16"
+      - "/usr/bin/clang-scan-deps-16"
+      - "/bin/clang-scan-deps-16"
+      - "/usr/sbin/clang-scan-deps-16"
+      - "/sbin/clang-scan-deps-16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/clang-scan-deps-16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/clang-scan-deps-16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/clang-scan-deps-16"
+      - "/pkg/env/global/bin/clang-scan-deps-16"
+      - "/opt/X11/bin/clang-scan-deps-16"
+      - "/Library/Apple/usr/bin/clang-scan-deps-16"
+      - "/Library/TeX/texbin/clang-scan-deps-16"
+      - "/usr/local/share/dotnet/clang-scan-deps-16"
+      - "/Users/ranaelgahawy/.dotnet/tools/clang-scan-deps-16"
+      - "/usr/local/go/bin/clang-scan-deps-16"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/clang-scan-deps-16"
+      - "/opt/anaconda3/condabin/clang-scan-deps-16"
+      - "/Users/ranaelgahawy/.cargo/bin/clang-scan-deps-16"
+      - "/opt/OpenCilk/bin/clang-scan-deps16"
+      - "/opt/opencilk/bin/clang-scan-deps16"
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/clang-scan-deps16"
+      - "/Applications/Docker.app/Contents/Resources/bin/clang-scan-deps16"
+      - "/Users/ranaelgahawy/Anaconda3/bin/clang-scan-deps16"
+      - "/usr/local/sbin/clang-scan-deps16"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/clang-scan-deps16"
+      - "/opt/local/bin/clang-scan-deps16"
+      - "/opt/local/sbin/clang-scan-deps16"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/clang-scan-deps16"
+      - "/usr/local/bin/clang-scan-deps16"
+      - "/System/Cryptexes/App/usr/bin/clang-scan-deps16"
+      - "/usr/bin/clang-scan-deps16"
+      - "/bin/clang-scan-deps16"
+      - "/usr/sbin/clang-scan-deps16"
+      - "/sbin/clang-scan-deps16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/clang-scan-deps16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/clang-scan-deps16"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/clang-scan-deps16"
+      - "/pkg/env/global/bin/clang-scan-deps16"
+      - "/opt/X11/bin/clang-scan-deps16"
+      - "/Library/Apple/usr/bin/clang-scan-deps16"
+      - "/Library/TeX/texbin/clang-scan-deps16"
+      - "/usr/local/share/dotnet/clang-scan-deps16"
+      - "/Users/ranaelgahawy/.dotnet/tools/clang-scan-deps16"
+      - "/usr/local/go/bin/clang-scan-deps16"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/clang-scan-deps16"
+      - "/opt/anaconda3/condabin/clang-scan-deps16"
+      - "/Users/ranaelgahawy/.cargo/bin/clang-scan-deps16"
+    found: "/opt/OpenCilk/bin/clang-scan-deps"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/Platform/Darwin.cmake:76 (find_program)"
+      - "/usr/local/share/cmake/Modules/CMakeSystemSpecificInformation.cmake:32 (include)"
+      - "CMakeLists.txt:9 (project)"
+    mode: "program"
+    variable: "CMAKE_INSTALL_NAME_TOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "FIRST"
+      SearchAppBundle: "FIRST"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "install_name_tool"
+    candidate_directories:
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/"
+      - "/Applications/Docker.app/Contents/Resources/bin/"
+      - "/Users/ranaelgahawy/Anaconda3/bin/"
+      - "/usr/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/"
+      - "/opt/local/bin/"
+      - "/opt/local/sbin/"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/"
+      - "/usr/local/bin/"
+      - "/System/Cryptexes/App/usr/bin/"
+      - "/usr/bin/"
+      - "/bin/"
+      - "/usr/sbin/"
+      - "/sbin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
+      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
+      - "/pkg/env/global/bin/"
+      - "/opt/X11/bin/"
+      - "/Library/Apple/usr/bin/"
+      - "/Library/TeX/texbin/"
+      - "/usr/local/share/dotnet/"
+      - "/Users/ranaelgahawy/.dotnet/tools/"
+      - "/usr/local/go/bin/"
+      - "/Library/Frameworks/Mono.framework/Versions/Current/Commands/"
+      - "/opt/anaconda3/condabin/"
+      - "/Users/ranaelgahawy/.cargo/bin/"
+    searched_directories:
+      - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin/install_name_tool"
+      - "/Applications/Docker.app/Contents/Resources/bin/install_name_tool"
+      - "/Users/ranaelgahawy/Anaconda3/bin/install_name_tool"
+      - "/usr/local/sbin/install_name_tool"
+      - "/Library/Frameworks/Python.framework/Versions/3.12/bin/install_name_tool"
+      - "/opt/local/bin/install_name_tool"
+      - "/opt/local/sbin/install_name_tool"
+      - "/Library/Frameworks/Python.framework/Versions/3.9/bin/install_name_tool"
+      - "/usr/local/bin/install_name_tool"
+      - "/System/Cryptexes/App/usr/bin/install_name_tool"
+    found: "/usr/bin/install_name_tool"
+    search_context:
+      ENV{PATH}:
+        - "/Users/ranaelgahawy/.nvm/versions/node/v22.23.4/bin"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/usr/local/bin"
+        - "/System/Cryptexes/App/usr/bin"
+        - "/usr/bin"
+        - "/bin"
+        - "/usr/sbin"
+        - "/sbin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
+        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
+        - "/pkg/env/global/bin"
+        - "/opt/X11/bin"
+        - "/Library/Apple/usr/bin"
+        - "/Library/TeX/texbin"
+        - "/usr/local/share/dotnet"
+        - "~/.dotnet/tools"
+        - "/usr/local/go/bin"
+        - "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+        - "/Applications/Docker.app/Contents/Resources/bin"
+        - "/Users/ranaelgahawy/Anaconda3/bin/"
+        - "/opt/anaconda3/condabin"
+        - "/usr/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.12/bin"
+        - "/opt/local/bin"
+        - "/opt/local/sbin"
+        - "/Library/Frameworks/Python.framework/Versions/3.9/bin"
+        - "/Users/ranaelgahawy/.cargo/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/local/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu"
+      binary: "/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/opt/OpenCilk/bin/clang-scan-deps"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: ""
+      CMAKE_OSX_SYSROOT: "/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu'
+        
+        Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/local/bin/gmake -f Makefile cmTC_54414/fast
+        /usr/local/bin/gmake  -f CMakeFiles/cmTC_54414.dir/build.make CMakeFiles/cmTC_54414.dir/build
+        gmake[1]: Entering directory '/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu'
+        Building CXX object CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o
+        /opt/opencilk/bin/clang++   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk   -v -Wl,-v -MD -MT CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        clang version 16.0.6 (git@github.com:OpenCilk/opencilk-project.git 3f1a18993b8087b1b06c7e891dceec0c86016197)
+        Target: x86_64-apple-darwin25.5.0
+        Thread model: posix
+        InstalledDir: /opt/opencilk/bin
+        clang-16: warning: -Wl,-v: 'linker' input unused [-Wunused-command-line-argument]
+        ignoring nonexistent directory "/opt/opencilk/bin/../include/c++/v1"
+         (in-process)
+         "/opt/OpenCilk/bin/clang-16" -cc1 -triple x86_64-apple-macosx15.4.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -ffp-contract=on -fno-rounding-math -funwind-tables=2 -target-sdk-version=15.4 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=lldb -target-linker-version 820.1 -v -fcoverage-compilation-dir=/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu -resource-dir /opt/OpenCilk/lib/clang/16 -dependency-file CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/local/include -internal-isystem /opt/OpenCilk/lib/clang/16/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/local/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 16.0.6 based upon LLVM 16.0.6 default target x86_64-apple-darwin25.5.0
+        ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/local/include"
+        ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/Library/Frameworks"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1
+         /opt/OpenCilk/lib/clang/16/include
+         /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include
+         /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/System/Library/Frameworks (framework directory)
+        End of search list.
+        Linking CXX executable cmTC_54414
+        /usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54414.dir/link.txt --verbose=1
+        clang version 16.0.6 (git@github.com:OpenCilk/opencilk-project.git 3f1a18993b8087b1b06c7e891dceec0c86016197)
+        Target: x86_64-apple-darwin25.5.0
+        Thread model: posix
+        InstalledDir: /opt/opencilk/bin
+         "/usr/bin/ld" -demangle -lto_library /opt/OpenCilk/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 15.4.0 15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -o cmTC_54414 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /opt/OpenCilk/lib/clang/16/lib/darwin/libclang_rt.osx.a
+        @(#)PROGRAM:ld PROJECT:ld-1267
+        BUILD 18:28:38 Apr 22 2026
+        configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em armv8m.main armv8.1m.main
+        will use ld-classic for: armv6 armv7 armv7s i386 armv6m armv7k armv7m armv7em
+        LTO support using: LLVM version 16.0.6 (static support for 30, runtime is 29)
+        TAPI support using: Apple TAPI version 21.0.0 (tapi-2100.0.2.6)
+        Library search paths:
+        	/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib
+        	/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib/swift
+        Framework search paths:
+        	/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/System/Library/Frameworks
+        /opt/opencilk/bin/clang++  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_54414
+        gmake[1]: Leaving directory '/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:122 (message)"
+      - "/usr/local/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Effective list of requested architectures (possibly empty)  : ""
+      Effective list of architectures found in the ABI info binary: "x86_64"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/usr/local/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1]
+          add: [/opt/OpenCilk/lib/clang/16/include]
+          add: [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include]
+        end of search list found
+        collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1]
+        collapse include dir [/opt/OpenCilk/lib/clang/16/include] ==> [/opt/OpenCilk/lib/clang/16/include]
+        collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include]
+        implicit include dirs: [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1;/opt/OpenCilk/lib/clang/16/include;/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/usr/local/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/local/bin/cmake -E env VERBOSE=1 /usr/local/bin/gmake -f Makefile cmTC_54414/fast]
+        ignore line: [/usr/local/bin/gmake  -f CMakeFiles/cmTC_54414.dir/build.make CMakeFiles/cmTC_54414.dir/build]
+        ignore line: [gmake[1]: Entering directory '/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu']
+        ignore line: [Building CXX object CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/opt/opencilk/bin/clang++   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk   -v -Wl -v -MD -MT CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang version 16.0.6 (git@github.com:OpenCilk/opencilk-project.git 3f1a18993b8087b1b06c7e891dceec0c86016197)]
+        ignore line: [Target: x86_64-apple-darwin25.5.0]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /opt/opencilk/bin]
+        ignore line: [clang-16: warning: -Wl -v: 'linker' input unused [-Wunused-command-line-argument]]
+        ignore line: [ignoring nonexistent directory "/opt/opencilk/bin/../include/c++/v1"]
+        ignore line: [ (in-process)]
+        ignore line: [ "/opt/OpenCilk/bin/clang-16" -cc1 -triple x86_64-apple-macosx15.4.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=all -ffp-contract=on -fno-rounding-math -funwind-tables=2 -target-sdk-version=15.4 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -target-cpu penryn -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=lldb -target-linker-version 820.1 -v -fcoverage-compilation-dir=/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu -resource-dir /opt/OpenCilk/lib/clang/16 -dependency-file CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/local/include -internal-isystem /opt/OpenCilk/lib/clang/16/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include -fdeprecated-macro -fdebug-compilation-dir=/Users/ranaelgahawy/Desktop/ResearchScholar/Falcon-accelerate-graph-vector-search/CPU_OpenCilk/dst_bombyx/build/CMakeFiles/CMakeScratch/TryCompile-5OxDmu -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/local/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 16.0.6 based upon LLVM 16.0.6 default target x86_64-apple-darwin25.5.0]
+        ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/local/include"]
+        ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/Library/Frameworks"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1]
+        ignore line: [ /opt/OpenCilk/lib/clang/16/include]
+        ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include]
+        ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/System/Library/Frameworks (framework directory)]
+        ignore line: [End of search list.]
+        ignore line: [Linking CXX executable cmTC_54414]
+        ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54414.dir/link.txt --verbose=1]
+        ignore line: [clang version 16.0.6 (git@github.com:OpenCilk/opencilk-project.git 3f1a18993b8087b1b06c7e891dceec0c86016197)]
+        ignore line: [Target: x86_64-apple-darwin25.5.0]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /opt/opencilk/bin]
+        link line: [ "/usr/bin/ld" -demangle -lto_library /opt/OpenCilk/lib/libLTO.dylib -dynamic -arch x86_64 -platform_version macos 15.4.0 15.4 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -o cmTC_54414 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /opt/OpenCilk/lib/clang/16/lib/darwin/libclang_rt.osx.a]
+          arg [/usr/bin/ld] ==> ignore
+          arg [-demangle] ==> ignore
+          arg [-lto_library] ==> ignore, skip following value
+          arg [/opt/OpenCilk/lib/libLTO.dylib] ==> skip value of -lto_library
+          arg [-dynamic] ==> ignore
+          arg [-arch] ==> ignore
+          arg [x86_64] ==> ignore
+          arg [-platform_version] ==> ignore
+          arg [macos] ==> ignore
+          arg [15.4.0] ==> ignore
+          arg [15.4] ==> ignore
+          arg [-syslibroot] ==> ignore
+          arg [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_54414] ==> ignore
+          arg [-search_paths_first] ==> ignore
+          arg [-headerpad_max_install_names] ==> ignore
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_54414.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lc++] ==> lib [c++]
+          arg [-lSystem] ==> lib [System]
+          arg [/opt/OpenCilk/lib/clang/16/lib/darwin/libclang_rt.osx.a] ==> lib [/opt/OpenCilk/lib/clang/16/lib/darwin/libclang_rt.osx.a]
+        linker tool for 'CXX': /usr/bin/ld
+        Library search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib;/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib/swift]
+        Framework search paths: [;/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/System/Library/Frameworks]
+        remove lib [System]
+        remove lib [/opt/OpenCilk/lib/clang/16/lib/darwin/libclang_rt.osx.a]
+        collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib]
+        collapse library dir [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib/swift] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib/swift]
+        collapse framework dir [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/System/Library/Frameworks] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/System/Library/Frameworks]
+        implicit libs: [c++]
+        implicit objs: []
+        implicit dirs: [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib;/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib/swift]
+        implicit fwks: [/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/System/Library/Frameworks]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "/usr/local/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/usr/local/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:9 (project)"
+    message: |
+      Running the CXX compiler's linker: "/usr/bin/ld" "-v"
+      @(#)PROGRAM:ld PROJECT:ld-1267
+      BUILD 18:28:38 Apr 22 2026
+      configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em armv8m.main armv8.1m.main
+      will use ld-classic for: armv6 armv7 armv7s i386 armv6m armv7k armv7m armv7em
+      LTO support using: LLVM version 21.0.0 (static support for 30, runtime is 30)
+      TAPI support using: Apple TAPI version 21.0.0 (tapi-2100.0.2.6)
+...

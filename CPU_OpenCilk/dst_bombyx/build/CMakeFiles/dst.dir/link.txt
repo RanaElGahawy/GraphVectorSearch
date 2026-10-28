@@ -1,0 +1,1 @@
+/opt/opencilk/bin/clang++ -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -fopencilk CMakeFiles/dst.dir/main.cpp.o -o dst

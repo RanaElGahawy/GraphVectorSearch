@@ -1,0 +1,173 @@
+{
+  "fpgaModel": "ALVEO_U55C",
+  "isVitisProject": true,
+  "mallocList": {},
+  "memorySizeSim": 16,
+  "name": "main",
+  "sendArgumentList": {
+    "dist_task": [
+      "dst_search_reentry0_cont0"
+    ],
+    "dst_search_exit0": [
+      "dst_search_reentry0_cont0"
+    ]
+  },
+  "spawnList": {
+    "dst_search": [
+      "dst_search_reentry0"
+    ],
+    "dst_search_reentry0": [
+      "dist_task",
+      "dst_search_exit0"
+    ],
+    "dst_search_reentry0_cont0": [
+      "dst_search_reentry0"
+    ]
+  },
+  "spawnNextList": {
+    "dst_search_reentry0": [
+      "dst_search_reentry0_cont0"
+    ]
+  },
+  "targetFrequency": 300,
+  "taskDescriptors": [
+    {
+      "closureWriteBeats": 4,
+      "dynamicMemAlloc": false,
+      "generateArgOutWriteBuffer": false,
+      "hasAXI": true,
+      "isCont": true,
+      "isRoot": false,
+      "name": "dst_search_reentry0_cont0",
+      "numProcessingElements": 1,
+      "peHDLPath": "out_hardcilk/main_HardCilk/vitis_hls_output/dst_search_reentry0_cont0",
+      "sidesConfigs": [
+        {
+          "capacityPhysicalQueue": 64,
+          "capacityVirtualQueue": 4096,
+          "numVirtualServers": 1,
+          "portWidth": 2048,
+          "sideType": "scheduler"
+        },
+        {
+          "capacityPhysicalQueue": 32,
+          "capacityVirtualQueue": 128,
+          "numVirtualServers": 1,
+          "portWidth": 64,
+          "sideType": "argumentNotifier"
+        },
+        {
+          "capacityPhysicalQueue": 32,
+          "capacityVirtualQueue": 4096,
+          "numVirtualServers": 1,
+          "portWidth": 64,
+          "sideType": "allocator"
+        }
+      ],
+      "spawnServersCount": 1,
+      "tag": 1,
+      "variableSpawn": false,
+      "widthMalloc": 0,
+      "widthTask": 2048
+    },
+    {
+      "argumentSizeList": [
+        32
+      ],
+      "dynamicMemAlloc": false,
+      "generateArgOutWriteBuffer": true,
+      "hasAXI": true,
+      "isCont": false,
+      "isRoot": false,
+      "name": "dst_search_exit0",
+      "numProcessingElements": 1,
+      "peHDLPath": "out_hardcilk/main_HardCilk/vitis_hls_output/dst_search_exit0",
+      "sidesConfigs": [
+        {
+          "capacityPhysicalQueue": 64,
+          "capacityVirtualQueue": 4096,
+          "numVirtualServers": 1,
+          "portWidth": 512,
+          "sideType": "scheduler"
+        }
+      ],
+      "spawnServersCount": 1,
+      "variableSpawn": false,
+      "widthMalloc": 0,
+      "widthTask": 512
+    },
+    {
+      "argumentSizeList": [
+        32
+      ],
+      "dynamicMemAlloc": false,
+      "generateArgOutWriteBuffer": true,
+      "hasAXI": true,
+      "isCont": false,
+      "isRoot": false,
+      "name": "dist_task",
+      "numProcessingElements": 1,
+      "peHDLPath": "out_hardcilk/main_HardCilk/vitis_hls_output/dist_task",
+      "sidesConfigs": [
+        {
+          "capacityPhysicalQueue": 64,
+          "capacityVirtualQueue": 4096,
+          "numVirtualServers": 1,
+          "portWidth": 512,
+          "sideType": "scheduler"
+        }
+      ],
+      "spawnServersCount": 1,
+      "variableSpawn": false,
+      "widthMalloc": 0,
+      "widthTask": 512
+    },
+    {
+      "dynamicMemAlloc": false,
+      "hasAXI": true,
+      "isCont": false,
+      "isRoot": true,
+      "name": "dst_search",
+      "numProcessingElements": 1,
+      "peHDLPath": "out_hardcilk/main_HardCilk/vitis_hls_output/dst_search",
+      "sidesConfigs": [
+        {
+          "capacityPhysicalQueue": 64,
+          "capacityVirtualQueue": 4096,
+          "numVirtualServers": 1,
+          "portWidth": 2048,
+          "sideType": "scheduler"
+        }
+      ],
+      "variableSpawn": false,
+      "widthMalloc": 0,
+      "widthTask": 2048
+    },
+    {
+      "dynamicMemAlloc": false,
+      "generateArgOutWriteBuffer": false,
+      "hasAXI": true,
+      "isCont": false,
+      "isRoot": false,
+      "name": "dst_search_reentry0",
+      "numProcessingElements": 1,
+      "peHDLPath": "out_hardcilk/main_HardCilk/vitis_hls_output/dst_search_reentry0",
+      "sidesConfigs": [
+        {
+          "capacityPhysicalQueue": 64,
+          "capacityVirtualQueue": 4096,
+          "numVirtualServers": 1,
+          "portWidth": 2048,
+          "sideType": "scheduler"
+        }
+      ],
+      "spawnServersCount": 1,
+      "variableSpawn": false,
+      "widthMalloc": 0,
+      "widthTask": 2048
+    }
+  ],
+  "widthAXIAddress": 34,
+  "widthAddress": 64,
+  "widthContCounter": 32
+}
