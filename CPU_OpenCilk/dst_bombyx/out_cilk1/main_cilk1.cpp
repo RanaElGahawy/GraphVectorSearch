@@ -11,19 +11,25 @@
 //   * dst_search is the control logic of one query processing pipeline. It runs
 //     serially: pops candidate groups (S1), filters visited neighbors with a
 //     Bloom filter (S2), and merges results into the queues (S5, S6).
-//   * dist_task is one Bloom-fetch-compute unit job: fetch one vector and compute
-//     its distance to the query (S3, S4). One task is spawned per neighbor.
+//   * eval_range is the Bloom-fetch-compute work of one group: fetch the
+//     neighbor vectors and compute their distances to the query (S3, S4). It
+//     splits the neighbors in halves down to grain distances per task, so
+//     grain = 1 is one task per neighbor.
 //   * search_batch spawns one dst_search per query (across-query parallelism).
 //
-// DST in fork-join form: up to mg candidate groups (mc candidates each) are in
-// the pipeline. Every round launches one new group and, once the pipeline is
-// full, merges only the earliest group (the delayed synchronization). New groups
-// are therefore selected from queues that do not yet contain the results of the
-// mg-1 most recent groups. mg = 1, mc = 1 is best-first search (Algorithm 1),
-// mg = 1, mc > 1 is multi-candidate search (MCS).
+// DST in fork-join form: groups of mc candidates are launched in epochs of mg
+// groups, and there is one cilk_sync per epoch. Step g of an epoch merges group
+// g of the previous epoch (the delayed synchronization), selects a new group
+// and spawns its evaluation without waiting for it. So up to mg groups are
+// evaluated at the same time, overlapped with the serial merges and selections,
+// and every group is selected from queues that do not yet contain the results
+// of the mg-1 most recently launched groups, as in Algorithm 2.
+// mg = 1, mc = 1 is best-first search (Algorithm 1), mg = 1, mc > 1 is
+// multi-candidate search (MCS).
 //
-// The spawned tasks write disjoint array entries and all queue updates are
-// serial, so the output is deterministic for any number of workers.
+// The spawned tasks only write the distances of their own group, which the
+// serial control logic reads only after the next cilk_sync, so the output is
+// deterministic for any number of workers.
 
 #include <cfloat>  // For FLT_MAX
 #include <cstdint> // For uint32_t
@@ -58,7 +64,7 @@ int *links;    // n * maxDegree
 /**************** Distance computation (S3, S4) ****************/
 
 float l2sq(const float *a, const float *b, int d);
-THREAD(dist_task);
+THREAD(eval_range);
 uint32_t murmur2(uint32_t k0, uint32_t seed);
 int bloom_test_and_set(uint32_t *bloom, uint32_t node);
 int sorted_insert(float *qd, int *qi, int size, int cap, float dist, int id);
@@ -66,20 +72,73 @@ float threshold(const float *rd, int r_size, int ef);
 void merge_group(float *rd, int *ri, float *cd, int *ci, int *meta, int ef, int cand_cap, const int *ids, const float *dists, int cnt);
 int select_group(float *rd, float *cd, int *ci, int *meta, int ef, int mc, const int *degree, const int *links, int maxDegree, uint32_t *bloom, int *ids, int *cnt);
 THREAD(dst_search);
-void search_batch(int nq, const float *queries, const float *vecs, const int *degree, const int *links, int d, int maxDegree, int entry, int ef, int cand_cap, int mc, int mg, int k0, float *rd, int *ri, float *cd, int *ci, uint32_t *bloom, int *slot_ids, float *slot_dists, int *slot_cnt, int *meta, int *out);
+void search_batch(int nq, const float *queries, const float *vecs, const int *degree, const int *links, int d, int maxDegree, int entry, int ef, int cand_cap, int mc, int mg, int grain, int k0, float *rd, int *ri, float *cd, int *ci, uint32_t *bloom, int *slot_ids, float *slot_dists, int *slot_cnt, int *meta, int *out);
 THREAD(dst_search_exit0);
 THREAD(dst_search_reentry0);
+THREAD(eval_range_afterif0);
+THREAD(eval_range_cont0);
 THREAD(search_batch_cont0);
 THREAD(dst_search_reentry0_cont0);
 
-
-CLOSURE_DEF(dist_task,
+struct dst_search_exit0_data {
+    const float *q;
+    const float *vecs;
+    const int *degree;
+    const int *links;
+    int d;
+    int maxDegree;
+    int entry;
+    int ef;
+    int cand_cap;
+    int mc;
+    int mg;
+    int grain;
+    int k0;
+    float *rd;
+    int *ri;
+    float *cd;
+    int *ci;
+    uint32_t *bloom;
+    int *slot_ids;
+    float *slot_dists;
+    int *slot_cnt;
+    int *meta;
+    int *out;
+    int slot_cap;
+    int i;
+    int i0;
+    float d0;
+    int cur;
+    int active;
+    int launched;
+    int g;
+    int ps;
+    int cs;
+    int popped;
+    int i1;
+};
+struct eval_range_afterif0_data {
     const float *q;
     const float *vecs;
     int d;
     const int *ids;
     float *dists;
+    int lo;
+    int hi;
+    int grain;
     int i;
+    int mid;
+};
+
+CLOSURE_DEF(eval_range,
+    const float *q;
+    const float *vecs;
+    int d;
+    const int *ids;
+    float *dists;
+    int lo;
+    int hi;
+    int grain;
 );
 CLOSURE_DEF(dst_search,
     const float *q;
@@ -93,6 +152,7 @@ CLOSURE_DEF(dst_search,
     int cand_cap;
     int mc;
     int mg;
+    int grain;
     int k0;
     float *rd;
     int *ri;
@@ -105,82 +165,16 @@ CLOSURE_DEF(dst_search,
     int *meta;
     int *out;
 );
-CLOSURE_DEF(dst_search_exit0,
-    int k0;
-    int *ri;
-    int *meta;
-    int *out;
-    int i1;
-);
-CLOSURE_DEF(dst_search_reentry0,
-    const float *q;
-    const float *vecs;
-    const int *degree;
-    const int *links;
-    int d;
-    int maxDegree;
-    int ef;
-    int cand_cap;
-    int mc;
-    int mg;
-    int k0;
-    float *rd;
-    int *ri;
-    float *cd;
-    int *ci;
-    uint32_t *bloom;
-    int *slot_ids;
-    float *slot_dists;
-    int *slot_cnt;
-    int *meta;
-    int *out;
-    int slot_cap;
-    int head;
-    int tail;
-    int pending;
-    int active;
-    int s;
-    int popped;
-    int i0;
-    int i1;
-);
+CLOSURE_DEF_SHARED(dst_search_exit0, dst_search_exit0_data);
+CLOSURE_DEF_SHARED(dst_search_reentry0, dst_search_exit0_data);
+CLOSURE_DEF_SHARED(eval_range_afterif0, eval_range_afterif0_data);
+CLOSURE_DEF_SHARED(eval_range_cont0, eval_range_afterif0_data);
 CLOSURE_DEF(search_batch_cont0,
 );
-CLOSURE_DEF(dst_search_reentry0_cont0,
-    const float *q;
-    const int *links;
-    int d;
-    int maxDegree;
-    const float *vecs;
-    const int *degree;
-    int ef;
-    int pending;
-    int active;
-    int cand_cap;
-    int mc;
-    int mg;
-    int k0;
-    float *rd;
-    int *ri;
-    float *cd;
-    int *ci;
-    uint32_t *bloom;
-    int *slot_ids;
-    float *slot_dists;
-    int *slot_cnt;
-    int *meta;
-    int *out;
-    int slot_cap;
-    int head;
-    int tail;
-    int s;
-    int popped;
-    int i0;
-    int i1;
-);
+CLOSURE_DEF_SHARED(dst_search_reentry0_cont0, dst_search_exit0_data);
 
 
-// One Bloom-fetch-compute job: distance between the query and vector ids[i].
+// Bloom-fetch-compute jobs: distances between the query and vectors ids[lo..hi)
 
 
 /**************** Bloom filter (S2) ****************/
@@ -218,8 +212,9 @@ CLOSURE_DEF(dst_search_reentry0_cont0,
 //   rd, ri:          result queue R, ef entries
 //   cd, ci:          candidate queue C, cand_cap entries
 //   bloom:           BLOOM_WORDS words
-//   slot_ids/dists:  mg pipeline slots of (mc * maxDegree) entries each
-//   slot_cnt:        mg entries
+//   slot_ids/dists:  2 * mg group slots of (mc * maxDegree) entries each, the
+//                    groups of the current and of the previous epoch
+//   slot_cnt:        2 * mg entries
 //   meta:            4 entries (see merge_group)
 //   out:             k result ids
 
@@ -297,8 +292,9 @@ void buildSynthetic(int nq, unsigned seed, std::vector<float> &queries,
 #pragma BOMBYX IGNORE main
 int main(int argc, char *argv[]) {
   if (argc > 1 && (std::string(argv[1]) == "-h" || std::string(argv[1]) == "--help")) {
-    std::cout << "Usage: " << argv[0] << " [mc=1] [mg=1] [n=5000] [dim=32] [nq=200] [maxDegree=32] [ef=64]\n"
+    std::cout << "Usage: " << argv[0] << " [mc=1] [mg=1] [n=5000] [dim=32] [nq=200] [maxDegree=32] [ef=64] [grain=1]\n"
               << "  mc = candidates per group, mg = groups in the pipeline\n"
+              << "  grain = distance computations per task\n"
               << "  mc=1 mg=1 is best-first search, mg=1 mc>1 is multi-candidate search\n";
     return 0;
   }
@@ -309,10 +305,11 @@ int main(int argc, char *argv[]) {
   int nq = argc > 5 ? atoi(argv[5]) : 200;
   maxDegree = argc > 6 ? atoi(argv[6]) : 32;
   int ef = argc > 7 ? atoi(argv[7]) : 64;
+  int grain = argc > 8 ? atoi(argv[8]) : 1;
   int cand_cap = 64; // candidate queue size
   int k = 10;
-  if (mc < 1 || mg < 1 || ef < k) {
-    std::cerr << "need mc >= 1, mg >= 1, ef >= 10" << std::endl;
+  if (mc < 1 || mg < 1 || ef < k || grain < 1) {
+    std::cerr << "need mc >= 1, mg >= 1, ef >= 10, grain >= 1" << std::endl;
     return 1;
   }
 
@@ -321,15 +318,15 @@ int main(int argc, char *argv[]) {
   buildSynthetic(nq, 42, queries, gt);
 
   // per-query buffers
-  size_t slot_size = (size_t)mg * mc * maxDegree;
+  size_t slot_size = (size_t)2 * mg * mc * maxDegree;
   std::vector<float> rd((size_t)nq * ef), cd((size_t)nq * cand_cap), slot_dists(nq * slot_size);
   std::vector<int> ri((size_t)nq * ef), ci((size_t)nq * cand_cap), slot_ids(nq * slot_size);
-  std::vector<int> slot_cnt((size_t)nq * mg), meta((size_t)nq * 4), out((size_t)nq * k);
+  std::vector<int> slot_cnt((size_t)nq * 2 * mg), meta((size_t)nq * 4), out((size_t)nq * k);
   std::vector<uint32_t> bloom((size_t)nq * BLOOM_WORDS);
 
   auto t0 = std::chrono::steady_clock::now();
   search_batch(nq, queries.data(), vecs, degree, links, dim, maxDegree, entry, ef,
-               cand_cap, mc, mg, k, rd.data(), ri.data(), cd.data(), ci.data(),
+               cand_cap, mc, mg, grain, k, rd.data(), ri.data(), cd.data(), ci.data(),
                bloom.data(), slot_ids.data(), slot_dists.data(), slot_cnt.data(),
                meta.data(), out.data());
   double ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - t0).count();
@@ -372,10 +369,69 @@ float l2sq(const float *a, const float *b, int d) {
     }
     return acc;
 }
-THREAD(dist_task) {
-    dist_task_closure *largs = (dist_task_closure*)(args.get());
-    largs->dists[largs->i] = l2sq(largs->q,&(largs->vecs[(largs->ids[largs->i] * largs->d)]),largs->d);
-    return;
+THREAD(eval_range) {
+    int i;
+    int mid;
+    eval_range_closure *largs = (eval_range_closure*)(args.get());
+    if (((largs->hi - largs->lo) <= largs->grain)) {
+        for (i = largs->lo;(i < largs->hi);i = (i + 1)) {
+            largs->dists[i] = l2sq(largs->q,&(largs->vecs[(largs->ids[i] * largs->d)]),largs->d);
+        }
+        auto sp0c = std::make_shared<eval_range_afterif0_closure>(largs->k);
+        sp0c->q = largs->q;
+        sp0c->vecs = largs->vecs;
+        sp0c->d = largs->d;
+        sp0c->ids = largs->ids;
+        sp0c->dists = largs->dists;
+        sp0c->lo = largs->lo;
+        sp0c->hi = largs->hi;
+        sp0c->grain = largs->grain;
+        sp0c->i = i;
+        sp0c->mid = mid;
+        cilk_spawn taskSpawn(sp0c->getTask(), sp0c);
+        return;
+    } else {
+        mid = (largs->lo + ((largs->hi - largs->lo) / 2));
+        eval_range_cont0_closure SN_eval_range_cont0c(largs->k);
+        spawn_next<eval_range_cont0_closure> SN_eval_range_cont0(SN_eval_range_cont0c);
+        cont sp1k;
+        SN_BIND_VOID(SN_eval_range_cont0, &sp1k);
+        eval_range_closure sp1c(sp1k);
+        sp1c.q = largs->q;
+        sp1c.vecs = largs->vecs;
+        sp1c.d = largs->d;
+        sp1c.ids = largs->ids;
+        sp1c.dists = largs->dists;
+        sp1c.lo = largs->lo;
+        sp1c.hi = mid;
+        sp1c.grain = largs->grain;
+        spawn<eval_range_closure> sp1(sp1c);
+
+        cont sp2k;
+        SN_BIND_VOID(SN_eval_range_cont0, &sp2k);
+        eval_range_closure sp2c(sp2k);
+        sp2c.q = largs->q;
+        sp2c.vecs = largs->vecs;
+        sp2c.d = largs->d;
+        sp2c.ids = largs->ids;
+        sp2c.dists = largs->dists;
+        sp2c.lo = mid;
+        sp2c.hi = largs->hi;
+        sp2c.grain = largs->grain;
+        spawn<eval_range_closure> sp2(sp2c);
+
+        ((eval_range_cont0_closure*)SN_eval_range_cont0.cls.get())->mid = mid;
+        ((eval_range_cont0_closure*)SN_eval_range_cont0.cls.get())->grain = largs->grain;
+        ((eval_range_cont0_closure*)SN_eval_range_cont0.cls.get())->hi = largs->hi;
+        ((eval_range_cont0_closure*)SN_eval_range_cont0.cls.get())->lo = largs->lo;
+        ((eval_range_cont0_closure*)SN_eval_range_cont0.cls.get())->dists = largs->dists;
+        ((eval_range_cont0_closure*)SN_eval_range_cont0.cls.get())->ids = largs->ids;
+        ((eval_range_cont0_closure*)SN_eval_range_cont0.cls.get())->d = largs->d;
+        ((eval_range_cont0_closure*)SN_eval_range_cont0.cls.get())->i = i;
+        ((eval_range_cont0_closure*)SN_eval_range_cont0.cls.get())->vecs = largs->vecs;
+        ((eval_range_cont0_closure*)SN_eval_range_cont0.cls.get())->q = largs->q;
+        // Original sync was here
+    }
 }
 uint32_t murmur2(uint32_t k0, uint32_t seed) {
     uint32_t m;
@@ -479,19 +535,23 @@ int select_group(float *rd, float *cd, int *ci, int *meta, int ef, int mc, const
 THREAD(dst_search) {
     int slot_cap;
     int i;
-    float d0;
-    int head;
-    int tail;
-    int pending;
-    int active;
-    int s;
-    int popped;
     int i0;
+    float d0;
+    int cur;
+    int active;
+    int launched;
+    int g;
+    int ps;
+    int cs;
+    int popped;
     int i1;
     dst_search_closure *largs = (dst_search_closure*)(args.get());
     slot_cap = (largs->mc * largs->maxDegree);
     for (i = 0;(i < 8192);i = (i + 1)) {
         largs->bloom[i] = 0;
+    }
+    for (i0 = 0;(i0 < (2 * largs->mg));i0 = (i0 + 1)) {
+        largs->slot_cnt[i0] = 0;
     }
     d0 = l2sq(largs->q,&(largs->vecs[(largs->entry * largs->d)]),largs->d);
     bloom_test_and_set(largs->bloom,largs->entry);
@@ -503,9 +563,7 @@ THREAD(dst_search) {
     largs->meta[1] = 1;
     largs->meta[2] = 0;
     largs->meta[3] = 1;
-    head = 0;
-    tail = 0;
-    pending = 0;
+    cur = 0;
     active = 1;
     auto sp0c = std::make_shared<dst_search_reentry0_closure>(largs->k);
     sp0c->q = largs->q;
@@ -514,10 +572,12 @@ THREAD(dst_search) {
     sp0c->links = largs->links;
     sp0c->d = largs->d;
     sp0c->maxDegree = largs->maxDegree;
+    sp0c->entry = largs->entry;
     sp0c->ef = largs->ef;
     sp0c->cand_cap = largs->cand_cap;
     sp0c->mc = largs->mc;
     sp0c->mg = largs->mg;
+    sp0c->grain = largs->grain;
     sp0c->k0 = largs->k0;
     sp0c->rd = largs->rd;
     sp0c->ri = largs->ri;
@@ -530,21 +590,24 @@ THREAD(dst_search) {
     sp0c->meta = largs->meta;
     sp0c->out = largs->out;
     sp0c->slot_cap = slot_cap;
-    sp0c->head = head;
-    sp0c->tail = tail;
-    sp0c->pending = pending;
-    sp0c->active = active;
-    sp0c->s = s;
-    sp0c->popped = popped;
+    sp0c->i = i;
     sp0c->i0 = i0;
+    sp0c->d0 = d0;
+    sp0c->cur = cur;
+    sp0c->active = active;
+    sp0c->launched = launched;
+    sp0c->g = g;
+    sp0c->ps = ps;
+    sp0c->cs = cs;
+    sp0c->popped = popped;
     sp0c->i1 = i1;
     cilk_spawn taskSpawn(sp0c->getTask(), sp0c);
     return;
 }
-void search_batch(int nq, const float *queries, const float *vecs, const int *degree, const int *links, int d, int maxDegree, int entry, int ef, int cand_cap, int mc, int mg, int k0, float *rd, int *ri, float *cd, int *ci, uint32_t *bloom, int *slot_ids, float *slot_dists, int *slot_cnt, int *meta, int *out) {
+void search_batch(int nq, const float *queries, const float *vecs, const int *degree, const int *links, int d, int maxDegree, int entry, int ef, int cand_cap, int mc, int mg, int grain, int k0, float *rd, int *ri, float *cd, int *ci, uint32_t *bloom, int *slot_ids, float *slot_dists, int *slot_cnt, int *meta, int *out) {
     int slot_size;
     int qi;
-    slot_size = ((mg * mc) * maxDegree);
+    slot_size = (((2 * mg) * mc) * maxDegree);
     search_batch_cont0_closure SN_search_batch_cont0c(CONT_DUMMY);
     spawn_next<search_batch_cont0_closure> SN_search_batch_cont0(SN_search_batch_cont0c);
     for (qi = 0;(qi < nq);qi = (qi + 1)) {
@@ -562,6 +625,7 @@ void search_batch(int nq, const float *queries, const float *vecs, const int *de
         sp0c.cand_cap = cand_cap;
         sp0c.mc = mc;
         sp0c.mg = mg;
+        sp0c.grain = grain;
         sp0c.k0 = k0;
         sp0c.rd = &(rd[(qi * ef)]);
         sp0c.ri = &(ri[(qi * ef)]);
@@ -570,7 +634,7 @@ void search_batch(int nq, const float *queries, const float *vecs, const int *de
         sp0c.bloom = &(bloom[(qi * 8192)]);
         sp0c.slot_ids = &(slot_ids[(qi * slot_size)]);
         sp0c.slot_dists = &(slot_dists[(qi * slot_size)]);
-        sp0c.slot_cnt = &(slot_cnt[(qi * mg)]);
+        sp0c.slot_cnt = &(slot_cnt[((qi * 2) * mg)]);
         sp0c.meta = &(meta[(qi * 4)]);
         sp0c.out = &(out[(qi * k0)]);
         spawn<dst_search_closure> sp0(sp0c);
@@ -591,68 +655,47 @@ THREAD(dst_search_exit0) {
 THREAD(dst_search_reentry0) {
     dst_search_reentry0_closure *largs = (dst_search_reentry0_closure*)(args.get());
     if ((largs->active == 1)) {
-        largs->s = largs->head;
-        largs->popped = select_group(largs->rd,largs->cd,largs->ci,largs->meta,largs->ef,largs->mc,largs->degree,largs->links,largs->maxDegree,largs->bloom,&(largs->slot_ids[(largs->s * largs->slot_cap)]),&(largs->slot_cnt[largs->s]));
+        largs->launched = 0;
         dst_search_reentry0_cont0_closure SN_dst_search_reentry0_cont0c(largs->k);
         spawn_next<dst_search_reentry0_cont0_closure> SN_dst_search_reentry0_cont0(SN_dst_search_reentry0_cont0c);
-        if ((largs->popped > 0)) {
-            largs->pending = (largs->pending + 1);
-            largs->head = ((largs->head + 1) % largs->mg);
-        }
-        for (largs->i0 = 0;(largs->i0 < largs->slot_cnt[largs->s]);largs->i0 = (largs->i0 + 1)) {
+        for (largs->g = 0;(largs->g < largs->mg);largs->g = (largs->g + 1)) {
+            largs->ps = (((1 - largs->cur) * largs->mg) + largs->g);
+            largs->cs = ((largs->cur * largs->mg) + largs->g);
+            merge_group(largs->rd,largs->ri,largs->cd,largs->ci,largs->meta,largs->ef,largs->cand_cap,&(largs->slot_ids[(largs->ps * largs->slot_cap)]),&(largs->slot_dists[(largs->ps * largs->slot_cap)]),largs->slot_cnt[largs->ps]);
+            largs->slot_cnt[largs->ps] = 0;
+            largs->popped = select_group(largs->rd,largs->cd,largs->ci,largs->meta,largs->ef,largs->mc,largs->degree,largs->links,largs->maxDegree,largs->bloom,&(largs->slot_ids[(largs->cs * largs->slot_cap)]),&(largs->slot_cnt[largs->cs]));
+            largs->launched = (largs->launched + largs->popped);
             cont sp0k;
             SN_BIND_VOID(SN_dst_search_reentry0_cont0, &sp0k);
-            dist_task_closure sp0c(sp0k);
+            eval_range_closure sp0c(sp0k);
             sp0c.q = largs->q;
             sp0c.vecs = largs->vecs;
             sp0c.d = largs->d;
-            sp0c.ids = &(largs->slot_ids[(largs->s * largs->slot_cap)]);
-            sp0c.dists = &(largs->slot_dists[(largs->s * largs->slot_cap)]);
-            sp0c.i = largs->i0;
-            spawn<dist_task_closure> sp0(sp0c);
+            sp0c.ids = &(largs->slot_ids[(largs->cs * largs->slot_cap)]);
+            sp0c.dists = &(largs->slot_dists[(largs->cs * largs->slot_cap)]);
+            sp0c.lo = 0;
+            sp0c.hi = largs->slot_cnt[largs->cs];
+            sp0c.grain = largs->grain;
+            spawn<eval_range_closure> sp0(sp0c);
 
         }
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->popped = largs->popped;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->s = largs->s;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->tail = largs->tail;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->slot_cap = largs->slot_cap;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->meta = largs->meta;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->out = largs->out;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->cd = largs->cd;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->slot_cnt = largs->slot_cnt;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->slot_dists = largs->slot_dists;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->mc = largs->mc;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->bloom = largs->bloom;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->slot_ids = largs->slot_ids;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->ci = largs->ci;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->mg = largs->mg;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->links = largs->links;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->q = largs->q;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->maxDegree = largs->maxDegree;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->k0 = largs->k0;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->i0 = largs->i0;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->cand_cap = largs->cand_cap;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->rd = largs->rd;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->ri = largs->ri;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->vecs = largs->vecs;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->active = largs->active;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->head = largs->head;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->pending = largs->pending;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->i1 = largs->i1;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->degree = largs->degree;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->d = largs->d;
-        ((dst_search_reentry0_cont0_closure*)SN_dst_search_reentry0_cont0.cls.get())->ef = largs->ef;
+        *static_cast<dst_search_exit0_data*>(SN_dst_search_reentry0_cont0.cls.get()) = *largs;
         // Original sync was here
     } else {
-        auto sp1c = std::make_shared<dst_search_exit0_closure>(largs->k);
-        sp1c->k0 = largs->k0;
-        sp1c->ri = largs->ri;
-        sp1c->meta = largs->meta;
-        sp1c->out = largs->out;
-        sp1c->i1 = largs->i1;
+        auto sp1c = std::make_shared<dst_search_exit0_closure>(largs->k, *largs);
         cilk_spawn taskSpawn(sp1c->getTask(), sp1c);
         return;
     }
+}
+THREAD(eval_range_afterif0) {
+    eval_range_afterif0_closure *largs = (eval_range_afterif0_closure*)(args.get());
+    return;
+}
+THREAD(eval_range_cont0) {
+    eval_range_cont0_closure *largs = (eval_range_cont0_closure*)(args.get());
+    auto sp0c = std::make_shared<eval_range_afterif0_closure>(largs->k, *largs);
+    cilk_spawn taskSpawn(sp0c->getTask(), sp0c);
+    return;
 }
 THREAD(search_batch_cont0) {
     search_batch_cont0_closure *largs = (search_batch_cont0_closure*)(args.get());
@@ -660,45 +703,11 @@ THREAD(search_batch_cont0) {
 }
 THREAD(dst_search_reentry0_cont0) {
     dst_search_reentry0_cont0_closure *largs = (dst_search_reentry0_cont0_closure*)(args.get());
-    if (((largs->pending > 0) && ((largs->pending == largs->mg) || (largs->popped == 0)))) {
-        merge_group(largs->rd,largs->ri,largs->cd,largs->ci,largs->meta,largs->ef,largs->cand_cap,&(largs->slot_ids[(largs->tail * largs->slot_cap)]),&(largs->slot_dists[(largs->tail * largs->slot_cap)]),largs->slot_cnt[largs->tail]);
-        largs->tail = ((largs->tail + 1) % largs->mg);
-        largs->pending = (largs->pending - 1);
-    }
-    if (((largs->pending == 0) && ((largs->meta[1] == 0) || (largs->cd[0] > threshold(largs->rd,largs->meta[0],largs->ef))))) {
+    largs->cur = (1 - largs->cur);
+    if ((largs->launched == 0)) {
         largs->active = 0;
     }
-    auto sp0c = std::make_shared<dst_search_reentry0_closure>(largs->k);
-    sp0c->q = largs->q;
-    sp0c->vecs = largs->vecs;
-    sp0c->degree = largs->degree;
-    sp0c->links = largs->links;
-    sp0c->d = largs->d;
-    sp0c->maxDegree = largs->maxDegree;
-    sp0c->ef = largs->ef;
-    sp0c->cand_cap = largs->cand_cap;
-    sp0c->mc = largs->mc;
-    sp0c->mg = largs->mg;
-    sp0c->k0 = largs->k0;
-    sp0c->rd = largs->rd;
-    sp0c->ri = largs->ri;
-    sp0c->cd = largs->cd;
-    sp0c->ci = largs->ci;
-    sp0c->bloom = largs->bloom;
-    sp0c->slot_ids = largs->slot_ids;
-    sp0c->slot_dists = largs->slot_dists;
-    sp0c->slot_cnt = largs->slot_cnt;
-    sp0c->meta = largs->meta;
-    sp0c->out = largs->out;
-    sp0c->slot_cap = largs->slot_cap;
-    sp0c->head = largs->head;
-    sp0c->tail = largs->tail;
-    sp0c->pending = largs->pending;
-    sp0c->active = largs->active;
-    sp0c->s = largs->s;
-    sp0c->popped = largs->popped;
-    sp0c->i0 = largs->i0;
-    sp0c->i1 = largs->i1;
+    auto sp0c = std::make_shared<dst_search_reentry0_closure>(largs->k, *largs);
     cilk_spawn taskSpawn(sp0c->getTask(), sp0c);
     return;
 }

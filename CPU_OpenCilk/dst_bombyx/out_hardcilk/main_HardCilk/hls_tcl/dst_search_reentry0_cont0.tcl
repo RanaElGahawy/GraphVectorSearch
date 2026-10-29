@@ -27,11 +27,6 @@ open_solution -reset "solution1" -flow_target vitis
 set_part {xcu55c-fsvh2892-2L-e}
 create_clock -period 3.3333 -name default
 
-# ── AXI memory interface directives ──────────────────────────────────────────
-config_interface -m_axi_addr64
-config_interface -m_axi_num_read_outstanding 32
-config_interface -m_axi_num_write_outstanding 32
-
 # ── Synthesis ─────────────────────────────────────────────────────────────────
 csynth_design
 

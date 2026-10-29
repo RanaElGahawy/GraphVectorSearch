@@ -32,89 +32,6 @@ using addr_t = uint64_t;
 // against each candidate continuation's <NAME>_TAG to pick the right port.
 #define CONT_TAG(cont) ((uint8_t)((cont) >> 56))
 
-#define DST_SEARCH_REENTRY0_CONT0_TAG 1
-
-struct __attribute__((packed))dst_search_reentry0_cont0_task {
-  uint32_t _counter;
-  addr_t _cont;
-  addr_t q;
-  addr_t links;
-  uint32_t d;
-  addr_t vecs;
-  addr_t degree;
-  uint32_t ef;
-  uint32_t maxDegree;
-  uint32_t pending;
-  uint32_t active;
-  uint32_t cand_cap;
-  uint32_t mc;
-  uint32_t mg;
-  uint32_t k0;
-  addr_t rd;
-  addr_t ri;
-  addr_t cd;
-  addr_t ci;
-  addr_t bloom;
-  addr_t slot_ids;
-  addr_t slot_dists;
-  addr_t slot_cnt;
-  addr_t meta;
-  addr_t out;
-  uint32_t slot_cap;
-  uint32_t head;
-  uint32_t tail;
-  uint32_t s;
-  uint32_t popped;
-  uint32_t i0;
-  uint32_t i1;
-  uint8_t _padding[68];
-};
-
-struct dst_search_reentry0_cont0_spawn_next {
-  addr_t addr;
-  uint8_t data[64];
-  uint32_t size;
-  uint32_t allow;
-  uint8_t _padding[48];
-};
-
-struct __attribute__((packed))dst_search_exit0_task {
-  addr_t _cont;
-  uint32_t k0;
-  addr_t ri;
-  addr_t meta;
-  addr_t out;
-  uint32_t i1;
-  uint8_t _padding[24];
-};
-
-struct __attribute__((packed)) uint32_t_arg_out {
-  addr_t addr;
-  uint32_t data;
-  uint32_t size;
-  uint32_t allow;
-  uint8_t _padding[12];
-};
-
-struct __attribute__((packed))dist_task_task {
-  addr_t _cont;
-  addr_t q;
-  addr_t vecs;
-  uint32_t d;
-  addr_t ids;
-  addr_t dists;
-  uint32_t i;
-  uint8_t _padding[16];
-};
-
-struct __attribute__((packed)) float_arg_out {
-  addr_t addr;
-  float data;
-  uint32_t size;
-  uint32_t allow;
-  uint8_t _padding[12];
-};
-
 struct __attribute__((packed))dst_search_task {
   addr_t _cont;
   addr_t q;
@@ -128,6 +45,7 @@ struct __attribute__((packed))dst_search_task {
   uint32_t cand_cap;
   uint32_t mc;
   uint32_t mg;
+  uint32_t grain;
   uint32_t k0;
   addr_t rd;
   addr_t ri;
@@ -139,7 +57,24 @@ struct __attribute__((packed))dst_search_task {
   addr_t slot_cnt;
   addr_t meta;
   addr_t out;
-  uint8_t _padding[104];
+  uint8_t _padding[100];
+};
+
+struct __attribute__((packed))dst_search_exit0_task {
+  addr_t _cont;
+  uint32_t k0;
+  addr_t ri;
+  addr_t meta;
+  addr_t out;
+  uint8_t _padding[28];
+};
+
+struct __attribute__((packed)) uint32_t_arg_out {
+  addr_t addr;
+  uint32_t data;
+  uint32_t size;
+  uint32_t allow;
+  uint8_t _padding[12];
 };
 
 struct __attribute__((packed))dst_search_reentry0_task {
@@ -150,10 +85,12 @@ struct __attribute__((packed))dst_search_reentry0_task {
   addr_t links;
   uint32_t d;
   uint32_t maxDegree;
+  uint32_t entry;
   uint32_t ef;
   uint32_t cand_cap;
   uint32_t mc;
   uint32_t mg;
+  uint32_t grain;
   uint32_t k0;
   addr_t rd;
   addr_t ri;
@@ -166,14 +103,97 @@ struct __attribute__((packed))dst_search_reentry0_task {
   addr_t meta;
   addr_t out;
   uint32_t slot_cap;
-  uint32_t head;
-  uint32_t tail;
-  uint32_t pending;
-  uint32_t active;
-  uint32_t s;
-  uint32_t popped;
+  uint32_t i;
   uint32_t i0;
+  float d0;
+  uint32_t cur;
+  uint32_t active;
+  uint32_t ps;
+  uint32_t cs;
+  uint32_t popped;
   uint32_t i1;
-  uint8_t _padding[72];
+  uint8_t _padding[60];
+};
+
+#define DST_SEARCH_REENTRY0_CONT0_TAG 2
+
+struct __attribute__((packed))dst_search_reentry0_cont0_task {
+  uint32_t _counter;
+  addr_t _cont;
+  addr_t q;
+  addr_t vecs;
+  addr_t degree;
+  addr_t links;
+  uint32_t d;
+  uint32_t maxDegree;
+  uint32_t entry;
+  uint32_t ef;
+  uint32_t cand_cap;
+  uint32_t mc;
+  uint32_t mg;
+  uint32_t grain;
+  uint32_t k0;
+  addr_t rd;
+  addr_t ri;
+  addr_t cd;
+  addr_t ci;
+  addr_t bloom;
+  addr_t slot_ids;
+  addr_t slot_dists;
+  addr_t slot_cnt;
+  addr_t meta;
+  addr_t out;
+  uint32_t slot_cap;
+  uint32_t i;
+  uint32_t i0;
+  float d0;
+  uint32_t cur;
+  uint32_t active;
+  uint32_t launched;
+  uint32_t ps;
+  uint32_t cs;
+  uint32_t popped;
+  uint32_t i1;
+  uint8_t _padding[52];
+};
+
+struct dst_search_reentry0_cont0_spawn_next {
+  addr_t addr;
+  uint8_t data[64];
+  uint32_t size;
+  uint32_t allow;
+  uint8_t _padding[48];
+};
+
+struct __attribute__((packed))eval_range_task {
+  addr_t _cont;
+  addr_t q;
+  addr_t vecs;
+  uint32_t d;
+  addr_t ids;
+  addr_t dists;
+  uint32_t lo;
+  uint32_t hi;
+  uint32_t grain;
+  uint8_t _padding[8];
+};
+
+struct __attribute__((packed))eval_range_afterif0_task {
+  addr_t _cont;
+};
+
+#define EVAL_RANGE_CONT0_TAG 1
+
+struct __attribute__((packed))eval_range_cont0_task {
+  uint32_t _counter;
+  addr_t _cont;
+  uint8_t _padding[4];
+};
+
+struct eval_range_cont0_spawn_next {
+  addr_t addr;
+  eval_range_cont0_task data;
+  uint32_t size;
+  uint32_t allow;
 };
 

@@ -1,0 +1,6 @@
+data/
+test_*
+settings.json
+*bench*
+*.sh
+.claude

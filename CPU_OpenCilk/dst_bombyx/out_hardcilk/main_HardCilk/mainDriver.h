@@ -8,14 +8,14 @@ public:
     dst_searchDriver(Memory *memory, int argc, char *argv[]) : hardCilkDriver(memory) {}
 
     int run_test_bench() override {
-        dst_search_task root_task_0 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        dst_search_task root_task_0 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         int counter = 2;
 
         uint64_t addr = allocateMemFPGA(sizeof(root_task_0), sizeof(root_task_0));
         memory_->copyToDevice(addr, reinterpret_cast<const uint8_t *>(&root_task_0), sizeof(root_task_0));
         memory_->copyToDevice(addr, reinterpret_cast<const uint8_t *>(&counter), sizeof(counter));
 
-        int slot_size = mg * mc * maxDegree;
+        int slot_size = 2 * mg * mc * maxDegree;
 
         uint64_t vecs_addr = allocateMemFPGA(sizeof(const float) * , 512);
         memory_->copyToDevice(vecs_addr, reinterpret_cast<const uint8_t *>(vecs), sizeof(const float) * );
@@ -35,6 +35,7 @@ public:
         root_task_0.cand_cap = cand_cap;
         root_task_0.mc = mc;
         root_task_0.mg = mg;
+        root_task_0.grain = grain;
         root_task_0.k0 = k;
         root_task_0._padding = 0;
 

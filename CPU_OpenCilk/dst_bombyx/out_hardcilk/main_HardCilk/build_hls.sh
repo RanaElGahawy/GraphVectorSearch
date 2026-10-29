@@ -6,10 +6,11 @@
 # Clock       : 300 MHz
 #
 # Usage:
-#   ./build_hls.sh [--debug]
+#   ./build_hls.sh [--debug] [-jN | --jobs N]
 #
 # Options:
-#   --debug   Keep intermediate Vitis HLS project directories.
+#   --debug        Keep intermediate Vitis HLS project directories.
+#   -jN, --jobs N  Max PEs to synthesise in parallel (default: nproc).
 #
 # Requirements:
 #   vitis_hls must be on PATH.
@@ -19,12 +20,24 @@
 #   vitis_hls_output/<kernel>/   — synthesised Verilog RTL per PE
 # =============================================================================
 
-set -euo pipefail
+set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORK_ROOT="${SCRIPT_DIR}/vitis_hls_work"
 RTL_ROOT="${SCRIPT_DIR}/vitis_hls_output"
-DEBUG="${1:-}"
+
+DEBUG=""
+MAX_JOBS="$(nproc 2>/dev/null || echo 4)"
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --debug)   DEBUG="--debug"; shift ;;
+        --jobs)    MAX_JOBS="$2"; shift 2 ;;
+        --jobs=*)  MAX_JOBS="${1#--jobs=}"; shift ;;
+        -j*)       MAX_JOBS="${1#-j}"; shift ;;
+        *)         shift ;;
+    esac
+done
+[[ "$MAX_JOBS" =~ ^[0-9]+$ && "$MAX_JOBS" -ge 1 ]] || MAX_JOBS=1
 
 RED='\033[0;31m'; GREEN='\033[0;32m'; CYAN='\033[0;36m'
 BOLD='\033[1m'; NC='\033[0m'
@@ -36,35 +49,54 @@ command -v vitis_hls &>/dev/null \
     || { error "'vitis_hls' not found — source the Vitis HLS settings64.sh first."; exit 1; }
 
 mkdir -p "$WORK_ROOT" "$RTL_ROOT"
+STATUS_DIR="$(mktemp -d)"
+trap 'rm -rf "$STATUS_DIR"' EXIT
 
-KERNELS=(dist_task dst_search dst_search_exit0 dst_search_reentry0 dst_search_reentry0_cont0)
-PASS=(); FAIL=()
+KERNELS=(dst_search dst_search_exit0 dst_search_reentry0 dst_search_reentry0_cont0 eval_range eval_range_afterif0 eval_range_cont0)
 
-for KERNEL in "${KERNELS[@]}"; do
-    echo -e "${BOLD}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    info "Synthesising PE: ${BOLD}${KERNEL}${NC}"
-
-    WORK_DIR="${WORK_ROOT}/${KERNEL}"
+declare -A KERNEL_WRAPPER=( )
+build_one() {
+    local KERNEL="$1"
+    local WORK_DIR="${WORK_ROOT}/${KERNEL}"
+    local TCL_FILE="${SCRIPT_DIR}/hls_tcl/${KERNEL}.tcl"
     mkdir -p "$WORK_DIR"
-    TCL_FILE="${SCRIPT_DIR}/hls_tcl/${KERNEL}.tcl"
-
-    if (cd "$WORK_DIR" && vitis_hls -f "$TCL_FILE" 2>&1 | tee vitis_hls.log); then
-        RTL_SRC="${WORK_DIR}/${KERNEL}_proj/solution1/syn/verilog"
+    info "Synthesising PE: ${BOLD}${KERNEL}${NC}"
+    if (cd "$WORK_DIR" && vitis_hls -f "$TCL_FILE" > vitis_hls.log 2>&1); then
+        local RTL_SRC="${WORK_DIR}/${KERNEL}_proj/solution1/syn/verilog"
         if [[ -d "$RTL_SRC" ]]; then
-            mkdir -p "${RTL_ROOT}/${KERNEL}"
-            cp -r "${RTL_SRC}/." "${RTL_ROOT}/${KERNEL}/"
-            success "${KERNEL} → ${RTL_ROOT}/${KERNEL}/"
+            local DEST="${RTL_ROOT}/${KERNEL}"
+            if [[ -n "${KERNEL_WRAPPER[$KERNEL]:-}" ]]; then
+                DEST="${RTL_ROOT}/${KERNEL_WRAPPER[$KERNEL]}"
+            fi
+            mkdir -p "$DEST"
+            cp -r "${RTL_SRC}/." "$DEST/"
+            success "${KERNEL} → ${DEST}/"
+            [[ "$DEBUG" == "--debug" ]] || rm -rf "$WORK_DIR"
+            echo PASS > "${STATUS_DIR}/${KERNEL}"
         else
-            error "Verilog not found: ${RTL_SRC}"
-            FAIL+=("$KERNEL"); continue
+            error "${KERNEL}: Verilog not found: ${RTL_SRC}"
+            echo FAIL > "${STATUS_DIR}/${KERNEL}"
         fi
-        [[ "$DEBUG" == "--debug" ]] || rm -rf "$WORK_DIR"
-        PASS+=("$KERNEL")
     else
         error "${KERNEL} failed. Log: ${WORK_DIR}/vitis_hls.log"
+        echo FAIL > "${STATUS_DIR}/${KERNEL}"
+    fi
+}
+
+info "Building ${#KERNELS[@]} PEs with up to ${MAX_JOBS} parallel job(s)."
+for KERNEL in "${KERNELS[@]}"; do
+    while (( $(jobs -rp | wc -l) >= MAX_JOBS )); do wait -n; done
+    build_one "$KERNEL" &
+done
+wait
+
+PASS=(); FAIL=()
+for KERNEL in "${KERNELS[@]}"; do
+    if [[ "$(cat "${STATUS_DIR}/${KERNEL}" 2>/dev/null)" == "PASS" ]]; then
+        PASS+=("$KERNEL")
+    else
         FAIL+=("$KERNEL")
     fi
-    echo
 done
 
 echo -e "${BOLD}══════════════════ SUMMARY ══════════════════${NC}"
