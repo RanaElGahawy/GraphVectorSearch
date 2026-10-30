@@ -4,3 +4,6 @@ settings.json
 *bench*
 *.sh
 .claude
+*.csv
+*.log
+*.py

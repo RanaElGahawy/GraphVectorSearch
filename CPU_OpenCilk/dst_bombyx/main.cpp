@@ -1,6 +1,3 @@
-// A single file implementation of Delayed-Synchronization Traversal (DST) for
-// graph vector search (Falcon, Jiang et al. VLDB'25, Algorithm 2) using OpenCilk.
-//
 // Mapping of Falcon onto Cilk tasks:
 //   * dst_search is the control logic of one query processing pipeline. It runs
 //     serially: pops candidate groups (S1), filters visited neighbors with a
@@ -55,7 +52,10 @@ float *vecs;   // n * dim
 int *degree;   // n
 int *links;    // n * maxDegree
 
-/**************** Distance computation (S3, S4) ****************/
+/**************** Distance computation (S3, S4)
+ * L2 distance squared
+ * squared Euclidean distance between two vectors
+ * S4: Computer distances****************/
 
 inline float l2sq(const float *a, const float *b, int d)
 {
@@ -69,6 +69,9 @@ inline float l2sq(const float *a, const float *b, int d)
 }
 
 // Bloom-fetch-compute jobs: distances between the query and vectors ids[lo..hi)
+// The only parallel work inside the query
+// Same as the BFC unit in the falcon
+// grain: how many distances one PE computes per task it receives.
 void eval_range(const float *q, const float *vecs, int d, const int *ids,
                 float *dists, int lo, int hi, int grain)
 {
@@ -164,6 +167,7 @@ inline float threshold(const float *rd, int r_size, int ef)
 // Merges the distances of one evaluated group into R and C.
 // meta: [0] = R size, [1] = C size, [2] = evaluated candidates, [3] = distance
 // computations
+// mainly the synchronization step: insert then sort based on threshhold -> S5-S6
 inline void merge_group(float *rd, int *ri, float *cd, int *ci, int *meta,
                         int ef, int cand_cap, const int *ids,
                         const float *dists, int cnt)
